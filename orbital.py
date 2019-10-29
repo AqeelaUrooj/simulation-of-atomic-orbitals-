@@ -9,7 +9,7 @@ from matplotlib import cm , colors
 
 
 m , l = input("Enter m order and l order: ").split()
-m=abs(int(m))
+m=int(m)
 l=int(l)
 print(m,l)
 phi , theta = np.mgrid[0:2*np.pi:200j , 0:np.pi:100j]
@@ -36,11 +36,11 @@ x= R * np.sin (theta)*np.cos(phi)
 y= R *np.sin (theta)*np.sin(phi)
 z= R * np.cos (theta)
 N=R/R.max()
-
+m=str(m)
 fig = plt.figure(figsize = (14,10))
 ax = fig.add_subplot(111,  projection='3d')
 ax.plot_surface(x,y,z,rstride=1 , cstride =1 , facecolors=cm.jet(N))
-ax.set_title('$|Y^{} _ {}|$'.format(m,l) , fontsize=20)
+ax.set_title('$|m={} , l= {}|$'.format(m,l) , fontsize=20)
 m=cm.ScalarMappable(cmap=cm.jet)
 m.set_array(R)
 fig.colorbar(m, shrink=0.8)
